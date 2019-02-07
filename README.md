@@ -4,7 +4,7 @@
 
 It supports SKSA versions 1095 and 1106 (the two recent SKSA versions which support USB).  
 
-Also included is a [template](https://github.com/jbop1626/hackit_patcher/blob/master/template.s) for writing your own SA patcher, which, like HackIt Patcher, uses skGetId as an entry point, and a hollowed-out skVerifyHash as the container for the SA patching code.  
+Also included is a [template](https://github.com/jbop1626/hackit_patcher/blob/master/template.s) for writing your own SA patcher, which, like HackIt Patcher, uses skGetId as an entry point and a hollowed-out skVerifyHash as the container for the SA patching code.  
 
 1. Assemble with [armips](https://github.com/Kingcom/armips).  
 2. Set up a game to run code from its savefile (a guide is in the works).  
