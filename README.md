@@ -19,5 +19,5 @@ The patch will be active until the next time the console is *completely* powered
 HackIt Patcher is licensed under the [MIT License](https://github.com/jbop1626/hackit_patcher/blob/master/LICENSE.md).
 
 ### More Information
-See the comments in [```hackit_patcher.s```](https://github.com/jbop1626/hackit_patcher/blob/master/hackit_patcher.s) and [```template.s```](https://github.com/jbop1626/hackit_patcher/blob/master/template.s), as well as [iQueBrew](http://www.iquebrew.org).  
+See the comments in [```hackit_patcher.s```](https://github.com/jbop1626/hackit_patcher/blob/master/hackit_patcher.s) and [```template.s```](https://github.com/jbop1626/hackit_patcher/blob/master/template.s), [```iQueBrew/bbp_pocs```](https://github.com/iQueBrew/bbp_pocs), as well as the [iQueBrew wiki](http://www.iquebrew.org).  
 
