@@ -2,7 +2,7 @@
 
 [HackIt Patcher](https://github.com/jbop1626/hackit_patcher/blob/master/hackit_patcher.s) is a small MIPS payload which patches the iQue Player [SKSA](http://www.iquebrew.org/index.php?title=SKSA) to remove certain content checks, and causes SKSA to load [tickets](http://www.iquebrew.org/index.php?title=Ticket) from a file named ```hackit.sys```, rather than the default [```ticket.sys```](http://www.iquebrew.org/index.php?title=Ticket.sys). This allows you to launch homemade applications with customized tickets.  
 
-It supports SKSA versions 1095 and 1106 (the two recent SKSA versions which support USB).  
+It supports SKSA versions 1095, 1101, and 1106 (common SKSA versions which support USB).  
 
 Also included is a [template](https://github.com/jbop1626/hackit_patcher/blob/master/template.s) for writing your own SA patcher, which, like HackIt Patcher, uses skGetId as an entry point and a hollowed-out skVerifyHash as the container for the SA patching code.  
 

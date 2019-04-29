@@ -115,15 +115,18 @@ patch_code:
   ; the (start of the) "ticket.sys" string 
   lui $t0, 0x804E          ; address of the first occurrence
   ori $t0, $t0, 0x94BC     ;    of the string in 1106
-  
   lw $t1, 0($t0)           ; If it matches, set 1106 addresses,
-  beq $t1, $t7, sksa_1106  ;    otherwise continue to check for 1095
+  beq $t1, $t7, sksa_1106  ;    otherwise continue to check for 1101
   nop 
   
+  lui $t0, 0x804E          ; address of the first occurrence
+  ori $t0, $t0, 0x98BC     ;    of the string in 1101
+  lw $t1, 0($t0)           ; If it matches, set 1101 addresses,
+  beq $t1, $t7, sksa_1101  ;    otherwise continue to check for 1095
+  nop 
   
   lui $t0, 0x804E          ; address of the first occurrence
   ori $t0, $t0, 0xB54C     ;    of the string in 1095
-  
   lw $t1, 0($t0)           ; If it matches, set 1095 addresses,
   bne $t1, $t7, jump_back  ;    otherwise jump to end and do nothing
   nop 
@@ -139,6 +142,16 @@ sksa_1095:
   ori $t3, $t3, 0xBB6C 
   lui $t2, 0x8043        
   ori $t2, $t2, 0x1ECC
+  beq $zero, $zero, patch_sa
+  nop
+  
+sksa_1101:
+  lui $t4, 0x804E      
+  ori $t4, $t4, 0x98BC 
+  lui $t3, 0x804E      
+  ori $t3, $t3, 0x9EDC 
+  lui $t2, 0x8043        
+  ori $t2, $t2, 0x241C
   beq $zero, $zero, patch_sa
   nop
   
