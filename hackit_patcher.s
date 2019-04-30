@@ -1,5 +1,5 @@
-; HackIt Patcher, v1.0
-; For SKSA versions 1095 and 1106
+; HackIt Patcher, v1.1
+; For SKSA versions 1095, 1101, and 1106
 ;
 ; Copyright (c) 2019 Jbop (https://github.com/jbop1626)
 ; Licensed under the MIT License:
