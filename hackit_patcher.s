@@ -132,9 +132,9 @@ patch_code:
   nop 
   
   ; Set addresses
-  ; t6 = address of 1st occurrence of "ticket.sys"
-  ; t7 = address of 2nd occurrence of "ticket.sys"
-  ; t1 = location of memcmp just after sig check
+  ; t4 = address of 1st occurrence of "ticket.sys"
+  ; t3 = address of 2nd occurrence of "ticket.sys"
+  ; t2 = location of memcmp just after sig check
 sksa_1095:
   lui $t4, 0x804E      
   ori $t4, $t4, 0xB54C 
