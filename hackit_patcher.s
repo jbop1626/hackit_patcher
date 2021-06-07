@@ -1,7 +1,7 @@
-; HackIt Patcher, v1.1
-; For SKSA versions 1095, 1101, and 1106
+; HackIt Patcher, v1.2
+; For SKSA versions 1095, 1099, 1101, and 1106
 ;
-; Copyright (c) 2019 Jbop (https://github.com/jbop1626)
+; Copyright (c) 2019, 2021 Jbop (https://github.com/jbop1626)
 ; Licensed under the MIT License:
 ; https://github.com/jbop1626/hackit_patcher/blob/master/LICENSE.md
 ;
@@ -117,50 +117,66 @@ patch_code:
   ori $t0, $t0, 0x94BC     ;    of the string in 1106
   lw $t1, 0($t0)           ; If it matches, set 1106 addresses,
   beq $t1, $t7, sksa_1106  ;    otherwise continue to check for 1101
-  nop 
+  nop
   
   lui $t0, 0x804E          ; address of the first occurrence
   ori $t0, $t0, 0x98BC     ;    of the string in 1101
   lw $t1, 0($t0)           ; If it matches, set 1101 addresses,
-  beq $t1, $t7, sksa_1101  ;    otherwise continue to check for 1095
+  beq $t1, $t7, sksa_1101  ;    otherwise continue to check for 1099
+  nop
+  
+  lui $t0, 0x804E          ; address of the first occurrence
+  ori $t0, $t0, 0x8C6C     ;    of the string in 1099
+  lw $t1, 0($t0)           ; If it matches, set 1099  addresses,
+  beq $t1, $t7, sksa_1099  ;    otherwise continue to check for 1095
   nop 
   
   lui $t0, 0x804E          ; address of the first occurrence
   ori $t0, $t0, 0xB54C     ;    of the string in 1095
   lw $t1, 0($t0)           ; If it matches, set 1095 addresses,
   bne $t1, $t7, jump_back  ;    otherwise jump to end and do nothing
-  nop 
+  nop
   
   ; Set addresses
   ; t4 = address of 1st occurrence of "ticket.sys"
   ; t3 = address of 2nd occurrence of "ticket.sys"
   ; t2 = location of memcmp just after sig check
 sksa_1095:
-  lui $t4, 0x804E      
-  ori $t4, $t4, 0xB54C 
-  lui $t3, 0x804E      
-  ori $t3, $t3, 0xBB6C 
-  lui $t2, 0x8043        
+  lui $t4, 0x804E
+  ori $t4, $t4, 0xB54C
+  lui $t3, 0x804E
+  ori $t3, $t3, 0xBB6C
+  lui $t2, 0x8043
   ori $t2, $t2, 0x1ECC
   beq $zero, $zero, patch_sa
   nop
   
+sksa_1099:
+  lui $t4, 0x804E
+  ori $t4, $t4, 0x8C6C
+  lui $t3, 0x804E
+  ori $t3, $t3, 0x928C
+  lui $t2, 0x8043
+  ori $t2, $t2, 0x1EFC
+  beq $zero, $zero, patch_sa
+  nop
+  
 sksa_1101:
-  lui $t4, 0x804E      
-  ori $t4, $t4, 0x98BC 
-  lui $t3, 0x804E      
-  ori $t3, $t3, 0x9EDC 
-  lui $t2, 0x8043        
+  lui $t4, 0x804E
+  ori $t4, $t4, 0x98BC
+  lui $t3, 0x804E
+  ori $t3, $t3, 0x9EDC
+  lui $t2, 0x8043
   ori $t2, $t2, 0x241C
   beq $zero, $zero, patch_sa
   nop
   
 sksa_1106:
-  lui $t4, 0x804E      
-  ori $t4, $t4, 0x94BC 
-  lui $t3, 0x804E      
-  ori $t3, $t3, 0x9ADC 
-  lui $t2, 0x8043        
+  lui $t4, 0x804E
+  ori $t4, $t4, 0x94BC
+  lui $t3, 0x804E
+  ori $t3, $t3, 0x9ADC
+  lui $t2, 0x8043
   ori $t2, $t2, 0x241C
 
 patch_sa:  
