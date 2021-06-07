@@ -127,7 +127,7 @@ patch_code:
   
   lui $t0, 0x804E          ; address of the first occurrence
   ori $t0, $t0, 0x8C6C     ;    of the string in 1099
-  lw $t1, 0($t0)           ; If it matches, set 1099  addresses,
+  lw $t1, 0($t0)           ; If it matches, set 1099 addresses,
   beq $t1, $t7, sksa_1099  ;    otherwise continue to check for 1095
   nop 
   
